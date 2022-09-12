@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3442986292250155999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -3412669900803545005, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: _enemyType
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ffc78d4cce45b148aca61050b90f95f, type: 2}
+    - target: {fileID: -3412669900803545005, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: _sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3412669900803545005, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: _sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1515477120, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: -3412669900803545005, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: _sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 285895371, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: -3412669900803545005, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: _sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -769463353, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: 1737129336103886106, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1515477120, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: 2190933483180680549, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1515477120, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: 3991768920732814282, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1515477120, guid: 1a3fc5a42156cca4c9ee44499a1a2826, type: 3}
+    - target: {fileID: 4067851714095533364, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067851714095533364, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067851714095533364, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992594701948515448, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_Name
+      value: AsteroidSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071030661457775359, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071030661457775359, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071030661457775359, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071030661457775359, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 672ca07f271451e4e91eb3460a27d612, type: 3}

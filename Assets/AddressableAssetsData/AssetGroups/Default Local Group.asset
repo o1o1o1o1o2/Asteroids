@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4abb459e6379a134e9027b1179cd4d53
+  m_SerializeEntries:
+  - m_GUID: 0878bcc2e54bbe244abd2aeafd38ad5c
+    m_Address: AsteroidBig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+  - m_GUID: b3aa6816bcd09db47a8188b7695a4cf8
+    m_Address: AsteroidSmall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+  - m_GUID: 03d4f494e8189d94aa3cebba8f64ea31
+    m_Address: AsteroidMedium
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+  - m_GUID: aa3be009766c2294ca4810f0cfd7af8b
+    m_Address: Ufo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+  - m_GUID: 5089a518e2b0a7d428cf40c930ec643c
+    m_Address: TickAbleManagerSceneObject
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a3eefad624721a445bddf31fbd3b4e4c
+    m_Address: MainConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameConfigs
+  - m_GUID: 8a7b091e79362724ab1b1e710df80cfd
+    m_Address: ViewsConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameConfigs
+  - m_GUID: abd613b0ac87497449059d53ea0d8962
+    m_Address: GamePlayConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameConfigs
+  - m_GUID: 92dbf2e4310028842b0ff2b4a838bcc7
+    m_Address: PlayerShip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a2f6a1242a69d654a8c91d2a306afce7
+    m_Address: PlayerConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameConfigs
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 9c6b54894a60622498b8ded2a033361e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4c1621a9c0f609a4398adc0a9b205a57, type: 2}
+    - {fileID: 11400000, guid: 77855688978463846a2aa7a9e639125b, type: 2}

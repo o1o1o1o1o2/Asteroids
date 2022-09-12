@@ -1,0 +1,22 @@
+{
+    "name": "Client",
+    "rootNamespace": "Asteroids",
+    "references": [
+        "SimpleEcs",
+        "FlyLib.Core",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "AsteroidsInput",
+        "Unity.InputSystem",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
