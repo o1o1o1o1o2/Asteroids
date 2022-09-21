@@ -8,6 +8,7 @@ namespace FlyLib.Core.Ui.ScreenManager.SceneViews
 		public void Construct()
 		{
 			InitializeView();
+			gameObject.SetActive(false);
 		}
 
 		protected abstract void InitializeView();
