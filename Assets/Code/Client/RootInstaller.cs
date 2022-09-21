@@ -37,12 +37,7 @@ namespace Asteroids.Client
 		public IScreenManager ScreenManager { get; private set; }
 		public ISimpleStateMachine GameStateMachine { get; private set; }
 
-		public RootInstaller(IEnumerable<SceneInstaller> sceneInstallers)
-		{
-			Task.Run(InitAsync(sceneInstallers).Wait);
-		}
-
-		private async Task InitAsync(IEnumerable<SceneInstaller> sceneInstallers)
+		public async Task InitAsync(IEnumerable<SceneInstaller> sceneInstallers)
 		{
 			GameStateMachine = new SimpleStateMachine();
 			ScreenManager = new ScreenManager();

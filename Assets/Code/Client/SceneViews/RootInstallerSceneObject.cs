@@ -6,9 +6,10 @@ namespace Asteroids.Client.SceneViews
 	[SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
 	public class RootInstallerSceneObject : MonoBehaviour
 	{
-		private void Awake()
+		private async void Awake()
 		{
-			new RootInstaller(GetComponentsInChildren<SceneInstaller>());
+			var rootInstaller = new RootInstaller();
+			await rootInstaller.InitAsync(GetComponentsInChildren<SceneInstaller>());
 		}
 	}
 }
