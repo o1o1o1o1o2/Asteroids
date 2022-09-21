@@ -12,7 +12,7 @@ namespace Asteroids.Client
 
 		protected override void Install()
 		{
-			foreach (var uiView in FindObjectsOfType<UiView>())
+			foreach (var uiView in FindObjectsOfType<UiView>(true))
 			{
 				uiView.Construct();
 			}

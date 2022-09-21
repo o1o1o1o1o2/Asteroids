@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartGameView
       objectReference: {fileID: 0}
+    - target: {fileID: 8085995345564458541, guid: ad3b05c4bb6a25448875553e5d1a0e0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8085995345564458542, guid: ad3b05c4bb6a25448875553e5d1a0e0f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -253,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8085995345564458542, guid: ad3b05c4bb6a25448875553e5d1a0e0f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8085995345564458542, guid: ad3b05c4bb6a25448875553e5d1a0e0f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -569,8 +573,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1475020853}
   - {fileID: 259268166}
+  - {fileID: 1475020853}
   m_Father: {fileID: 1922377914}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -782,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567545335016875014, guid: 5ac5181198f931543b94250c800b84f9, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3567545335016875014, guid: 5ac5181198f931543b94250c800b84f9, type: 3}
       propertyPath: m_AnchorMax.x
