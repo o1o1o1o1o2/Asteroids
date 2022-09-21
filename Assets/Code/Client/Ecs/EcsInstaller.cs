@@ -40,9 +40,9 @@ namespace Asteroids.Client.Ecs
 				new DespawnSystem(gameContext),
 
 				//visual
-				new LaserVisualSystem(gameContext),
 				new PlayerAcceleratedVisualSystem(gameContext),
-				new SyncMovementVisualSystem(gameContext));
+				new SyncMovementVisualSystem(gameContext),
+				new LaserVisualSystem(gameContext));
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using Asteroids.Client.Ecs.Components.Interfaces;
+﻿using System;
+using Asteroids.Client.Ecs.Components.Interfaces;
 using Asteroids.Client.Ecs.Components.Visual;
 using FlyLib.Core.Utils;
 using SimpleEcs.Public;
@@ -16,6 +17,14 @@ namespace Asteroids.Client.SceneViews
 
 		public Component Component => this;
 		public Vector3 BulletSpawnPoint => _trBulletSpawnPoint.position;
+		public Vector3 Position => _tr.position;
+
+		private Transform _tr;
+
+		private void Awake()
+		{
+			_tr = transform;
+		}
 
 		public void AddToEntity(Entity logicEntity)
 		{
