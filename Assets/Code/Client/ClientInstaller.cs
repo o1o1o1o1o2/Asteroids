@@ -1,5 +1,6 @@
 ﻿using Asteroids.Client.SceneViews;
 using Asteroids.Client.Ui;
+using FlyLib.Core.Ui.ScreenManager.SceneViews;
 using UnityEngine;
 
 namespace Asteroids.Client
@@ -11,6 +12,10 @@ namespace Asteroids.Client
 
 		protected override void Install()
 		{
+			foreach (var uiView in FindObjectsOfType<UiView>())
+			{
+				uiView.Construct();
+			}
 			var hudScreen = new HudScreen(_hudView, RootInstaller.GameContext);
 			
 			RootInstaller.ScreenManager.Register(hudScreen,

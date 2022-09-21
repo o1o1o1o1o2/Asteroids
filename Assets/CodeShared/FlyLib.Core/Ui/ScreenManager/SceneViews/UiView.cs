@@ -5,9 +5,8 @@ namespace FlyLib.Core.Ui.ScreenManager.SceneViews
 {
 	public abstract class UiView : MonoBehaviour
 	{
-		private void Awake()
+		public void Construct()
 		{
-			gameObject.SetActive(false);
 			InitializeView();
 		}
 
