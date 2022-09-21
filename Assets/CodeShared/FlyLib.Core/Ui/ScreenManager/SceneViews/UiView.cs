@@ -27,7 +27,7 @@ namespace FlyLib.Core.Ui.ScreenManager.SceneViews
 
 		private Task ShowInternalAsync()
 		{
-			gameObject.transform.SetAsFirstSibling();
+			gameObject.transform.SetAsLastSibling();
 			gameObject.SetActive(true);
 			return Task.CompletedTask;
 		}
