@@ -15,6 +15,7 @@ namespace Asteroids.Client.Ecs.Systems.Logic
 	{
 		private readonly InputActions _inputActions;
 		private readonly IFilteredGroup _playerGroup;
+		private readonly IFilteredGroup _laserGroup;
 
 		private readonly PlayerConfig _playerConfig;
 		private Rect _camRect;
@@ -24,6 +25,7 @@ namespace Asteroids.Client.Ecs.Systems.Logic
 			_inputActions = inputActions;
 			_playerConfig = gameConfigs.GetConfig<PlayerConfig>();
 			_playerGroup = gameContext.AllOf<CPlayerTag>();
+			_laserGroup = gameContext.AllOf<CLaserTag, CLaserShotCount>();
 			_inputActions.PlayerInput.Enable();
 
 			_camRect = Camera.main.GetCamWorldRect();
@@ -42,7 +44,12 @@ namespace Asteroids.Client.Ecs.Systems.Logic
 
 			if (_inputActions.PlayerInput.Shooting.WasPressedThisFrame())
 			{
-				Shoot();
+				ShootBullet();
+			}
+
+			if (_inputActions.PlayerInput.ShootLaser.WasPressedThisFrame())
+			{
+				ShootLaser();
 			}
 		}
 
@@ -65,7 +72,7 @@ namespace Asteroids.Client.Ecs.Systems.Logic
 			}
 		}
 
-		private void Shoot()
+		private void ShootBullet()
 		{
 			var pE = _playerGroup.FirstOrDefault(x => _camRect.Contains(x.GetValue<VPlayerView>().BulletSpawnPoint));
 			if (pE == null)
@@ -82,6 +89,30 @@ namespace Asteroids.Client.Ecs.Systems.Logic
 				Velocity = shootDir * _playerConfig.ProjectileSpeed + pE.GetValue<CVelocity>(),
 			};
 			pE.Set<CShootInfo>(shootInfo);
+		}
+
+		private void ShootLaser()
+		{
+			var laserE = _laserGroup.FirstOrDefault();
+
+			if (laserE == null)
+			{
+				return;
+			}
+
+			if (laserE.Has<CLaserShootLeftSec>())
+			{
+				return;
+			}
+
+			var laserShootCount = laserE.GetValue<CLaserShotCount>();
+			if (laserShootCount == 0)
+			{
+				return;
+			}
+
+			laserE.Set<CLaserShootLeftSec>(_playerConfig.LaserShootDurationSec);
+			laserE.Set<CLaserShotCount>(laserShootCount - 1);
 		}
 
 		private void Rotate(Entity playerE, float deltaTime, bool isClockWise)

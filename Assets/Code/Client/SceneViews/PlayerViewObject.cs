@@ -11,10 +11,11 @@ namespace Asteroids.Client.SceneViews
 		[SerializeField] private SpriteRenderer _renderer;
 		[SerializeField] private Sprite _spShipNormal;
 		[SerializeField] private Sprite _spShipAccel;
-		[SerializeField] private Transform _bulletSpawnPoint;
+		[SerializeField] private Transform _trBulletSpawnPoint;
+		[SerializeField] private GameObject _goLaser;
 
 		public Component Component => this;
-		public Vector3 BulletSpawnPoint => _bulletSpawnPoint.position;
+		public Vector3 BulletSpawnPoint => _trBulletSpawnPoint.position;
 
 		public void AddToEntity(Entity logicEntity)
 		{
@@ -47,6 +48,11 @@ namespace Asteroids.Client.SceneViews
 			}
 
 			gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
+		}
+
+		public void SetLaserActive(bool active)
+		{
+			_goLaser.SetActive(active);
 		}
 	}
 }

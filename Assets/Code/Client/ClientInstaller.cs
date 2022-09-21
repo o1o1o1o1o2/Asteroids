@@ -16,7 +16,7 @@ namespace Asteroids.Client
 			{
 				uiView.Construct();
 			}
-			var hudScreen = new HudScreen(_hudView, RootInstaller.GameContext);
+			var hudScreen = new HudScreen(_hudView, RootInstaller.GameContext, RootInstaller.GameConfigs);
 			
 			RootInstaller.ScreenManager.Register(hudScreen,
 				new StartScreen(_startView, RootInstaller.GameStateMachine));

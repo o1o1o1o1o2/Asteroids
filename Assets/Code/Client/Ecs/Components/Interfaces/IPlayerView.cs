@@ -6,5 +6,6 @@ namespace Asteroids.Client.Ecs.Components.Interfaces
 	{
 		Vector3 BulletSpawnPoint { get; }
 		void SetAccelerated(bool accelerated);
+		void SetLaserActive(bool active);
 	}
 }

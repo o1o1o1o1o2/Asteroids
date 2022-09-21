@@ -29,6 +29,7 @@ namespace Asteroids.Client.Ecs
 				new PlayerSpawnSystem(gameContext, gameConfigs, _rootInstaller.AssetProvider, eventsController),
 				new UfoVelocitySystem(gameContext, gameConfigs),
 				new PlayerInputSystem(gameContext, gameConfigs, _rootInstaller.InputActions),
+				new LaserSystem(gameContext, gameConfigs),
 				new ShootingSystem(gameContext, eventsController),
 				new PlayerVelocitySystem(gameContext, gameConfigs),
 				new MoveSystem(gameContext),
@@ -39,6 +40,7 @@ namespace Asteroids.Client.Ecs
 				new DespawnSystem(gameContext),
 
 				//visual
+				new LaserVisualSystem(gameContext),
 				new PlayerAcceleratedVisualSystem(gameContext),
 				new SyncMovementVisualSystem(gameContext));
 		}

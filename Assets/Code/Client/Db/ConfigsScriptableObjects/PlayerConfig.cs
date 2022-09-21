@@ -20,5 +20,9 @@ namespace Asteroids.Client.Db.ConfigsScriptableObjects
 		public ProjectileDefinition ProjectileDefinition { get; private set; }
 
 		[field: SerializeField, Range(1500, 3000)] public float ProjectileSpeed { get; private set; } = 1000;
+		
+		[field: SerializeField, Range(5, 10)] public float LaserCooldownSec { get; private set; } = 5;
+		[field: SerializeField, Range(1, 5)] public int LaserMaxShots { get; private set; } = 3;
+		[field: SerializeField, Range(1, 5)] public float LaserShootDurationSec { get; private set; } = 2;
 	}
 }

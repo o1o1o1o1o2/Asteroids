@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Asteroids.Client.Db.ConfigsScriptableObjects;
 using Asteroids.Client.Ecs.Components;
+using FlyLib.Core.GameConfigs.Contracts;
 using FlyLib.Core.Ui.ScreenManager.Controlls;
 using SimpleEcs.Contracts;
 using SimpleEcs.Public;
@@ -16,16 +18,22 @@ namespace Asteroids.Client.Ui
 		private readonly IFilteredGroup _playerSpeedGroup;
 		private readonly IFilteredGroup _playerPositionGroup;
 		private readonly IFilteredGroup _playerRotationGroup;
+		private readonly IFilteredGroup _laserCoolDownGroup;
+		private readonly IFilteredGroup _laserCountGroup;
+		private readonly PlayerConfig _playerConfig;
 
 		private bool _needUpdate;
 		private float _lastUpdateTime;
 
-		public HudScreen(HudView view, GameContext gameContext)
+		public HudScreen(HudView view, GameContext gameContext, IGameConfigs gameConfigs)
 		{
+			_playerConfig = gameConfigs.GetConfig<PlayerConfig>();
 			_hudView = view;
 			_playerSpeedGroup = gameContext.AllOf<CPlayerTag, CPosition>();
 			_playerPositionGroup = gameContext.AllOf<CPlayerTag, CRotation>();
 			_playerRotationGroup = gameContext.AllOf<CPlayerTag, CVelocity>();
+			_laserCountGroup = gameContext.AllOf<CLaserTag, CLaserShotCount>();
+			_laserCoolDownGroup = gameContext.AllOf<CLaserTag, CLaserCoolDownSec>();
 		}
 
 		protected override Task ShowAsync()
@@ -33,6 +41,8 @@ namespace Asteroids.Client.Ui
 			_playerSpeedGroup.OnAddedOrUpdated += SetNeedUpdate;
 			_playerPositionGroup.OnAddedOrUpdated += SetNeedUpdate;
 			_playerRotationGroup.OnAddedOrUpdated += SetNeedUpdate;
+			_laserCountGroup.OnAddedOrUpdated += SetNeedUpdate;
+			_laserCoolDownGroup.OnAddedOrUpdated += SetNeedUpdate;
 			return _hudView.ShowAsync();
 		}
 
@@ -52,6 +62,15 @@ namespace Asteroids.Client.Ui
 			_hudView.SetRotationText($"Rotation : {playerE.GetValue<CRotation>().eulerAngles.z:0}");
 			_hudView.SetPositionText($"Position {playerE.GetValue<CPosition>().ToString("0")}");
 			_hudView.SetSpeedText($"Speed {playerE.GetValue<CVelocity>().magnitude:0}");
+
+			var laserE = _laserCountGroup.FirstOrDefault();
+			if (laserE == null)
+			{
+				return;
+			}
+
+			_hudView.SetLaserCooldownText($"Laser cooldown {laserE.GetValue<CLaserCoolDownSec>():0}/{_playerConfig.LaserCooldownSec}");
+			_hudView.SetLaserCountText($"Laser count {laserE.GetValue<CLaserShotCount>()}/{_playerConfig.LaserMaxShots}");
 		}
 
 		protected override Task HideAsync()
@@ -59,6 +78,8 @@ namespace Asteroids.Client.Ui
 			_playerSpeedGroup.OnAddedOrUpdated -= SetNeedUpdate;
 			_playerPositionGroup.OnAddedOrUpdated -= SetNeedUpdate;
 			_playerRotationGroup.OnAddedOrUpdated -= SetNeedUpdate;
+			_laserCountGroup.OnAddedOrUpdated -= SetNeedUpdate;
+			_laserCoolDownGroup.OnAddedOrUpdated -= SetNeedUpdate;
 			return _hudView.HideAsync();
 		}
 

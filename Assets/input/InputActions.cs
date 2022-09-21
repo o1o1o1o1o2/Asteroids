@@ -46,6 +46,15 @@ namespace InputManger
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShootLaser"",
+                    ""type"": ""Button"",
+                    ""id"": ""e20a46f2-ab74-4730-a209-2c765e5ce656"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -158,6 +167,28 @@ namespace InputManger
                     ""action"": ""Shooting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e217cd58-ec7b-4493-9839-42387437e394"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f62792b9-fffc-4cf3-b564-690d8527b211"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -168,6 +199,7 @@ namespace InputManger
             m_PlayerInput = asset.FindActionMap("PlayerInput", throwIfNotFound: true);
             m_PlayerInput_Movement = m_PlayerInput.FindAction("Movement", throwIfNotFound: true);
             m_PlayerInput_Shooting = m_PlayerInput.FindAction("Shooting", throwIfNotFound: true);
+            m_PlayerInput_ShootLaser = m_PlayerInput.FindAction("ShootLaser", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -229,12 +261,14 @@ namespace InputManger
         private IPlayerInputActions m_PlayerInputActionsCallbackInterface;
         private readonly InputAction m_PlayerInput_Movement;
         private readonly InputAction m_PlayerInput_Shooting;
+        private readonly InputAction m_PlayerInput_ShootLaser;
         public struct PlayerInputActions
         {
             private @InputActions m_Wrapper;
             public PlayerInputActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_PlayerInput_Movement;
             public InputAction @Shooting => m_Wrapper.m_PlayerInput_Shooting;
+            public InputAction @ShootLaser => m_Wrapper.m_PlayerInput_ShootLaser;
             public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -250,6 +284,9 @@ namespace InputManger
                     @Shooting.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShooting;
                     @Shooting.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShooting;
                     @Shooting.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShooting;
+                    @ShootLaser.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShootLaser;
+                    @ShootLaser.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShootLaser;
+                    @ShootLaser.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShootLaser;
                 }
                 m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
                 if (instance != null)
@@ -260,6 +297,9 @@ namespace InputManger
                     @Shooting.started += instance.OnShooting;
                     @Shooting.performed += instance.OnShooting;
                     @Shooting.canceled += instance.OnShooting;
+                    @ShootLaser.started += instance.OnShootLaser;
+                    @ShootLaser.performed += instance.OnShootLaser;
+                    @ShootLaser.canceled += instance.OnShootLaser;
                 }
             }
         }
@@ -268,6 +308,7 @@ namespace InputManger
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnShooting(InputAction.CallbackContext context);
+            void OnShootLaser(InputAction.CallbackContext context);
         }
     }
 }
