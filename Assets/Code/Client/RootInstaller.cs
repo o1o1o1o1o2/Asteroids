@@ -39,6 +39,7 @@ namespace Asteroids.Client
 
 		public async Task InitAsync(IEnumerable<SceneInstaller> sceneInstallers)
 		{
+			await Task.Yield();
 			GameStateMachine = new SimpleStateMachine();
 			ScreenManager = new ScreenManager();
 			InputActions = new InputActions();
@@ -77,6 +78,7 @@ namespace Asteroids.Client
 			InstallStates();
 			
 			await ScreenManager.HideAllScreensAsync();
+			await Task.Yield();
 			await GameStateMachine.EnterAsync<MainMenuState>();
 		}
 
