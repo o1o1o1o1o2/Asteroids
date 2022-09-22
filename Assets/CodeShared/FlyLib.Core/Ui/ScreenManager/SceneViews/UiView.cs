@@ -29,7 +29,16 @@ namespace FlyLib.Core.Ui.ScreenManager.SceneViews
 		{
 			gameObject.transform.SetAsLastSibling();
 			gameObject.SetActive(true);
+			FixBug();
 			return Task.CompletedTask;
+		}
+
+		private void
+			FixBug() //temporal fix for unity bug 2021.3.6f1 https://forum.unity.com/threads/canvas-hierarchy-drawing-order-broken-after-upgrade-to-unity-2021-3.1308642/
+		{
+			var canvas = gameObject.GetComponent<Canvas>();
+			canvas.overrideSorting = true;
+			canvas.overrideSorting = false;
 		}
 
 		private Task HideInternalAsync()
